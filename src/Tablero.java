@@ -4,8 +4,8 @@ public class Tablero {
     public static final int DIMENSION = 3;
     private static int NEUTRAL = 0;
     private EstadoCasilla[][] casillas;
-    private final String IMAGEN_O = "\u2B55";
-    private final String IMAGEN_X = "\u274C";
+    private final String IMAGEN_O = "\u2B55 ";
+    private final String IMAGEN_X = " \u274C ";
     private final String IMAGEN_VACIO = " - ";
 
     public Tablero() {
@@ -16,7 +16,9 @@ public class Tablero {
 
     public void mostrar() {
         for (int i = 0; i < casillas.length; i++) {
+            System.out.println("+----+----+----+");
             for (int j = 0; j < casillas[i].length; j++) {
+                System.out.print("|");
                 if (casillas[i][j] == EstadoCasilla.FICHA_O) {
                     System.out.print(IMAGEN_O);
                 }
@@ -25,7 +27,9 @@ public class Tablero {
                 }
                 else if (casillas[i][j] == EstadoCasilla.VACIO) {
                     System.out.print(IMAGEN_VACIO);
+
                 }
+                System.out.print("|");
             }
             System.out.println("");
         }

@@ -12,6 +12,9 @@ public class TresEnRaya {
         // Creamos los 2 jugadores
         Jugador jugador1 = new Jugador(EstadoCasilla.FICHA_X);
         Jugador jugador2 = new Jugador(EstadoCasilla.FICHA_O);
+        System.out.println("Vamos a jugar al \"Tres en Raya\"");
+        tablero.mostrar();
+        System.out.println();
 
         do {
             // El jugador 1 inserta una ficha en el tablero
@@ -39,7 +42,23 @@ public class TresEnRaya {
                 jugador2.cantarVictoria();
                 break;
             }
-        } while (!tablero.estaLleno());
+        } while (!tablero.estaLleno()||!tablero.estaLleno());
+    }
+
+    public static boolean repetir(){
+        boolean jugar=false;
+        System.out.println("¿Quieres volver a jugar? [S/N]:");
+        switch (scanner.next()){
+            case "S" : jugar= true;
+            break;
+            case "N" : jugar= false;
+            break;
+            default:
+                System.out.println("¡Error! Debes introducir S o N");
+                break;
+
+        }
+        return jugar;
     }
 
 
@@ -47,6 +66,9 @@ public class TresEnRaya {
         scanner = new Scanner(System.in);
         TresEnRaya tresEnRaya = new TresEnRaya();
         tresEnRaya.jugar();
+        if (repetir()==true){
+            tresEnRaya.jugar();
+        }
 
     }
 
