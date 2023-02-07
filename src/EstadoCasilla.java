@@ -1,4 +1,5 @@
 public enum EstadoCasilla {
 
-    FICHA_O, FICHA_X, VACIO
-}
+
+    FICHA_O, FICHA_X, VACIO}
+

@@ -5,7 +5,7 @@ public class Jugador {
         Coordenada hola = new Coordenada(3,3);
     }
 
-    private EstadoCasilla ficha;
+    public EstadoCasilla ficha;
 
     public Jugador(EstadoCasilla ficha) {
         this.ficha = ficha;
@@ -20,6 +20,7 @@ public class Jugador {
         do {
             int fila = pedirNumero("Introduce fila [1-3]:");
             int columna = pedirNumero("Introduce columna [1-3]:");
+            Tablero tablero = new Tablero();
 
             // Crear la coordenada
             // Preguntar a la coordenada si es válida
@@ -27,6 +28,10 @@ public class Jugador {
             // Si es válida, devolverla
 
             Coordenada coordenada = new Coordenada(fila, columna);
+            if (tablero.isOcupada(coordenada)){
+                System.out.println("¡Error! Coordenada ocupada en el tablero");
+            }
+
             if (coordenada.isValida(Tablero.DIMENSION)) {
                 return coordenada;
             }
@@ -45,5 +50,9 @@ public class Jugador {
             TresEnRaya.scanner.next();
             System.out.println("¡Error! Debe introducir un número entero");
         } while(true);
+    }
+
+    public void cantarVictoria(){
+        System.out.println("¡El jugador "+ficha+" es el ganador!");
     }
 }
