@@ -47,18 +47,22 @@ public class TresEnRaya {
 
     public static boolean repetir(){
         boolean jugar=false;
-        System.out.println("¿Quieres volver a jugar? [S/N]:");
-        switch (scanner.next()){
-            case "S" : jugar= true;
-            break;
-            case "N" : jugar= false;
-            break;
-            default:
-                System.out.println("¡Error! Debes introducir S o N");
-                break;
+        do {
+            System.out.println("¿Quieres volver a jugar? [S/N]:");
+            switch (scanner.next()) {
+                case "S":
+                    jugar = true;
+                    break;
+                case "N":
+                    jugar = false;
+                    break;
+                default:
+                    System.out.println("¡Error! Debes introducir S o N");
+                    continue;
 
-        }
-        return jugar;
+            }
+            return jugar;
+        }while (true);
     }
 
 
