@@ -47,6 +47,7 @@ public class TresEnRaya {
         scanner = new Scanner(System.in);
         TresEnRaya tresEnRaya = new TresEnRaya();
         tresEnRaya.jugar();
+
     }
 
 }

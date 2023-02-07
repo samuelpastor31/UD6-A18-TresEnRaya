@@ -12,7 +12,23 @@ public class Jugador {
     }
 
     public void ponerFicha(Tablero tablero){
-       tablero.ponerFicha(recogerCoordenada(),ficha);
+        int cont = 2;
+        do {
+
+            Coordenada coordenada = recogerCoordenada();
+            if (tablero.isOcupada(coordenada)){
+                System.out.println("¡Error! Coordenada ocupada en el tablero");
+                cont = 1;
+            } else {
+                cont = 2;
+                tablero.ponerFicha(coordenada,ficha);
+            }
+
+        } while (cont == 1);
+
+
+
+
 
     }
 
@@ -28,9 +44,6 @@ public class Jugador {
             // Si es válida, devolverla
 
             Coordenada coordenada = new Coordenada(fila, columna);
-            if (tablero.isOcupada(coordenada)){
-                System.out.println("¡Error! Coordenada ocupada en el tablero");
-            }
 
             if (coordenada.isValida(Tablero.DIMENSION)) {
                 return coordenada;

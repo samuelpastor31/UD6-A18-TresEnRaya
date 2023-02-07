@@ -119,12 +119,11 @@ public class Tablero {
         }
     }
 
-    public boolean isOcupada(Coordenada casilla) {
-        if (casilla.equals(EstadoCasilla.FICHA_O) || casilla.equals(EstadoCasilla.FICHA_X)) {
-            return true;
-        } else {
+    public boolean isOcupada(Coordenada casilla){
+
+        if (casillas[casilla.getFila()-1][casilla.getColumna()-1] == EstadoCasilla.VACIO){
             return false;
-        }
+        } return true;
     }
 
     public void ponerFicha(Coordenada casilla, EstadoCasilla color) {
